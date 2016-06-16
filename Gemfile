@@ -15,3 +15,7 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :production do
+  gem 'pg'
+end
+
