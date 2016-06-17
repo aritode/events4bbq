@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Events 4 Bbq" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -46,7 +46,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <%= link_to "Events 4 All with BBQ", root_path, class: 'navbar-brand' %>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
@@ -73,7 +73,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2016</p>
+        <p>&copy; <%= t 'app.company' %> 2016</p>
       </footer>
 
     </div> <!-- /container -->
