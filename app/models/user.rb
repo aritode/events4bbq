@@ -10,9 +10,15 @@ class User < ActiveRecord::Base
 
   before_validation :set_name, on: :create
 
+  after_commit :link_subscriptions, on: :create
+
   private
 
   def set_name
     self.name = "Юзверь №#{rand(777)}" if self.name.blank?
+  end
+
+  def link_subscriptions
+    subscriptions.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)
   end
 end
