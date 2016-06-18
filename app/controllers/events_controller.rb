@@ -20,6 +20,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @new_comment = @event.comments.build(params[:comment])
+    @new_subscription = @event.subscriptions.build(params[:subscription])
   end
 
   # POST /events
