@@ -40,6 +40,10 @@ ru:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
 
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+
   app:
     name: 'Events 4 BBQ'
     company: 'Качественный программист'
