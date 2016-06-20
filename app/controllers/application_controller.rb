@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :current_user_can_edit?, :current_user_can_subscribe?
+  helper_method :current_user_can_edit?, :current_user_can_subscribe?,
+                :current_user_subscribed?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u|
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
 
   def current_user_can_subscribe?(event)
     !current_user_can_edit?(event)
+  end
+
+  def current_user_subscribed?(event)
+    event.subscriptions.map(&:user_id).include? current_user.id if current_user.present?
   end
 
   def current_user_can_edit?(model)
