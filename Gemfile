@@ -14,7 +14,8 @@ gem 'jquery-rails'
 
 gem 'carrierwave'
 gem 'rmagick'
-gem 'fog-aws'
+gem 'fog'
+# gem 'fog-aws'
 
 group :development, :test do
   gem 'sqlite3'
