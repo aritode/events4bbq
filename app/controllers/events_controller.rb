@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show]
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
-  before_action :pincode_guard, only: [:show]
+  before_action :pincode_guard!, only: [:show]
 
   # GET /events
   def index
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   end
 
   private
-  def pincode_guard
+  def pincode_guard!
     return true if @event.pincode.blank?
     return true if user_signed_in? && current_user == @event.user
 
